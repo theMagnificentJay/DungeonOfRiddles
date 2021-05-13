@@ -1,0 +1,7 @@
+X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\bin\Debug\PairProgrammingConsoleGame.exe.config
+X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\bin\Debug\PairProgrammingConsoleGame.exe
+X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\bin\Debug\PairProgrammingConsoleGame.pdb
+X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.csprojAssemblyReference.cache
+X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.csproj.CoreCompileInputs.cache
+X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.exe
+X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.pdb
