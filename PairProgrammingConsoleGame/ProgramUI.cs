@@ -655,7 +655,7 @@ namespace PairProgrammingConsoleGame
                         break;
                 }
                 //Console.WriteLine("\n\tPress any key to continue...");
-                //Console.ReadKey();
+                Console.ReadKey();
                 Console.Clear();
             }
         }
