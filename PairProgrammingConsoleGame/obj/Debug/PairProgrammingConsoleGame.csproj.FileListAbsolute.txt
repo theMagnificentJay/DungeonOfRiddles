@@ -5,3 +5,10 @@ X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\P
 X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.csproj.CoreCompileInputs.cache
 X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.exe
 X:\schoolFolder\sd86-Apr2021\VSCommunity\Challenges\PairProgrammingConsoleGame\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.pdb
+C:\Users\jaymz\OneDrive\Documents\ElevenFiftyProjects\DungeonOfRiddles\PairProgrammingConsoleGame\bin\Debug\PairProgrammingConsoleGame.exe.config
+C:\Users\jaymz\OneDrive\Documents\ElevenFiftyProjects\DungeonOfRiddles\PairProgrammingConsoleGame\bin\Debug\PairProgrammingConsoleGame.exe
+C:\Users\jaymz\OneDrive\Documents\ElevenFiftyProjects\DungeonOfRiddles\PairProgrammingConsoleGame\bin\Debug\PairProgrammingConsoleGame.pdb
+C:\Users\jaymz\OneDrive\Documents\ElevenFiftyProjects\DungeonOfRiddles\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.csprojAssemblyReference.cache
+C:\Users\jaymz\OneDrive\Documents\ElevenFiftyProjects\DungeonOfRiddles\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.csproj.CoreCompileInputs.cache
+C:\Users\jaymz\OneDrive\Documents\ElevenFiftyProjects\DungeonOfRiddles\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.exe
+C:\Users\jaymz\OneDrive\Documents\ElevenFiftyProjects\DungeonOfRiddles\PairProgrammingConsoleGame\obj\Debug\PairProgrammingConsoleGame.pdb

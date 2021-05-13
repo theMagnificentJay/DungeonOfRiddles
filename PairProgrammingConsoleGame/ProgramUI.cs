@@ -12,6 +12,7 @@ namespace PairProgrammingConsoleGame
         bool _hasKey;
         bool _hasWeapon;
         bool _hasRiddle;
+        bool _firstRoom;
 
         public void Run()
         {
@@ -27,6 +28,7 @@ namespace PairProgrammingConsoleGame
                 _hasKey = false;
                 _hasWeapon = false;
                 _hasRiddle = false;
+                _firstRoom = false;
                 Console.Clear();
                 Console.Title = "Dungeon of Riddles";
                 string title = @"
@@ -162,12 +164,24 @@ namespace PairProgrammingConsoleGame
                 "\tPress any key to continue...");
             Console.ReadKey();
             Console.Clear();
-            RoomOne();
+            Start();
         }
 
         // Room One - red door
-        private void RoomOne()
+        public void Start()
         {
+            if(_firstRoom)
+            {
+                RoomOne();
+            }
+            else
+            {
+                RoomOneFirst();
+            }
+        }
+        private void RoomOneFirst()
+        {
+            _firstRoom = true;
             Console.Clear();
             string title = @"
          ██▀███   ▒█████   ▒█████   ███▄ ▄███▓    ▒█████   ███▄    █▓█████ 
@@ -349,6 +363,186 @@ namespace PairProgrammingConsoleGame
                 Console.Clear();
             }
         }
+        private void RoomOne()
+        {
+            _firstRoom = true;
+            Console.Clear();
+            string title = @"
+         ██▀███   ▒█████   ▒█████   ███▄ ▄███▓    ▒█████   ███▄    █▓█████ 
+        ▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒   ▒██▒  ██▒ ██ ▀█   █▓█   ▀ 
+        ▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▓██    ▓██░   ▒██░  ██▒▓██  ▀█ ██▒███   
+        ▒██▀▀█▄  ▒██   ██░▒██   ██░▒██    ▒██    ▒██   ██░▓██▒  ▐▌██▒▓█  ▄ 
+        ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒   ░ ████▓▒░▒██░   ▓██░▒████▒
+        ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░   ░ ▒░▒░▒░ ░ ▒░   ▒ ▒░░ ▒░ ░
+          ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░     ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░  ░
+          ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░      ░ ░ ░ ▒     ░   ░ ░   ░   
+           ░         ░ ░      ░ ░         ░          ░ ░           ░   ░  ░
+                                                                           
+";
+            Console.WriteLine(title);
+           
+            bool inRoomOne = true;
+            while (inRoomOne)
+            {
+                Console.Clear();
+                Console.WriteLine(title);
+                Console.WriteLine("\n\tWhile it is still hard to see, you are able to make out that you are standing in a room with \n" +
+                    "\tfour walls and two doors.\n" +
+                    "\n" +
+                    "\tDuring your search you found a key lying on the floor in a corner, some torn pages scattered across the room,\n" +
+                    "\tthe bed you awoke in, one blue door, and one green door.\n" +
+                    "\n" +
+                    "\tWhat would you like to do?\n" +
+                    "\n" +
+                    "\tNote: Remember you can use the keywords \"goto\", \"look at\", \"open\", and \"pick up\" objects or items \n" +
+                    "\tthat are presented to you.\n" +
+                    "\n" +
+                    "\t1. Rules\n" +
+                    "\t2. Inventory\n" +
+                    "\t3. Exit");
+
+                string input = Console.ReadLine();
+
+                switch (input.ToLower())
+                {
+                    case "1":
+                        // Rules
+                        DisplayRules();
+                        Console.WriteLine("\tPress any key to continue...");
+                        break;
+                    case "2":
+                        // Inventory
+                        Inventory();
+                        Console.WriteLine("\tPress any key to continue...");
+                        break;
+                    case "3":
+                        // Exit
+                        return;
+                    case "goto blue door":
+                        // goto blue door
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou walk up to the blue door. You are closer to it than you were before.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "look at blue door":
+                        // look at blue door
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou stare at the blue door. The door is of normal size possibly an ancient wood work of years past.\n" +
+                            "\tIt is weatherd and fading but its blue coat of paint still exists. The handle has begun to rust and it's hinges look\n" +
+                            "\tlook as if they have not moved in a very long time.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "open blue door":
+                        // open blue door
+                        OpenDoor();
+                        Console.ReadKey();
+                        inRoomOne = false;
+                        RoomFour();
+                        break;
+                    case "pick up blue door":
+                        // pick up blue door
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou simply are not strong enough to pick up the door. Maybe because it still resides within\n" +
+                            "\tits frame.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "goto green door":
+                        // goto green door
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou walk up to the green door. You are closer to it than you were before.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "look at green door":
+                        // look at green door
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou stare at the green door. The door is of normal size possibly an ancient wood work of years past.\n" +
+                            "\tIt is weatherd and fading but its green coat of paint still exists. The handle has begun to rust and it's hinges look\n" +
+                            "\tlook as if they have not moved in a very long time.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "open green door":
+                        // open green door
+                        OpenDoor();
+                        Console.ReadKey();
+                        inRoomOne = false;
+                        RoomTwo();
+                        break;
+                    case "pick up green door":
+                        // pick up green door
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou simply are not strong enough to pick up the door. Maybe because it still resides within its frame.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "goto torn pages":
+                        // goto torn pages
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou walk over to the torn pages that a littered over the floor.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "look at torn pages":
+                        // look at torn pages
+                        Console.Clear();
+                        Console.WriteLine("\n\tSadly after what could be years of decay the words on these pages are no longer legible.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "pick up torn pages":
+                        // pick up torn pages
+                        Console.Clear();
+                        Console.WriteLine("\n\tSadly after what could be years of decay the words on these pages are no longer legible.\n" +
+                            "\n" +
+                            "\tIt is probably best to not take these pages with you, there is no point.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "goto key":
+                        // goto key
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou walk over to the key that is on the ground in the corner. It entices you, maybe\n" +
+                            "\tyou will need this later.\n" +
+                            "\n" +
+                            "\tNote: You can \"pick up key\" to add this item to your inventory.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "look at key":
+                        // look at key
+                        Console.Clear();
+                        Console.WriteLine("\n\tThe key glistens in the darkened room, gold and embroidered with some ancient dialect unkown to yourself.\n" +
+                            "\tIt entices you, maybe you will need this later.\n" +
+                            "\n" +
+                            "\tNote: You can \"pick up key\" to add this item to your inventory.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                    case "pick up key":
+                        // pick up key
+                        Console.Clear();
+                        Console.WriteLine("\n\tYou walk over to the key on the ground, bend down, pick it up and slip into your pocket.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        _hasKey = true;
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("\n\tPlease enter a valid option.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                        break;
+                }
+                // Console.WriteLine("\n\tPress any key to continue...");
+                Console.ReadKey();
+                Console.Clear();
+            }
+        }
+
 
         // Room Two - green door
         private void RoomTwo()
@@ -460,8 +654,8 @@ namespace PairProgrammingConsoleGame
                             "\tPress any key to continue...");
                         break;
                 }
-                Console.WriteLine("\n\tPress any key to continue...");
-                Console.ReadKey();
+                //Console.WriteLine("\n\tPress any key to continue...");
+                //Console.ReadKey();
                 Console.Clear();
             }
         }
@@ -594,6 +788,7 @@ namespace PairProgrammingConsoleGame
                         break;
                     case "golden door":
                     case "open golden door":
+                    case "gold door":
                         Console.Clear();
                         inRoomThree = false;
                         DeathRoom();
@@ -605,7 +800,7 @@ namespace PairProgrammingConsoleGame
                             "\tPress any key to continue...");
                         break;
                 }
-                Console.WriteLine("\n\tPress any key to continue...");
+                //Console.WriteLine("\n\tPress any key to continue...");
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -749,7 +944,7 @@ namespace PairProgrammingConsoleGame
                             "\tPress any key to continue...");
                         break;
                 }
-                Console.WriteLine("\n\tPress any key to continue...");
+                // Console.WriteLine("\n\tPress any key to continue...");
                 Console.ReadKey();
                 Console.Clear();
             }
@@ -807,7 +1002,7 @@ namespace PairProgrammingConsoleGame
                         BossRoom();
                         break;
                     default:
-                    again:
+                        //again:
                         Console.Clear();
                         Console.WriteLine("\n\tThat wasn't right.\n" +
                             "\n" +
@@ -815,7 +1010,7 @@ namespace PairProgrammingConsoleGame
                         string answer = Console.ReadLine();
                         if (answer == "y" || answer == "yes")
                         {
-                            goto again;
+                            ComboDoor();
                         }
                         else
                         {
@@ -898,8 +1093,39 @@ namespace PairProgrammingConsoleGame
         // Death Room
         private void DeathRoom()
         {
-            Console.Clear();
-            string title = @"
+            bool inRoomDeathRoom = true;
+            while (inRoomDeathRoom)
+            {
+                if (_hasKey && _hasWeapon)
+                {
+                    DeathRoomWithSword();
+                }
+                else if (_hasKey)
+                {
+                    DeathRoomWithKey();
+                }
+                else
+                {
+                    Console.WriteLine("\n\tThis door seems to be locked and requires some sort of key.\n" +
+                            "\n" +
+                            "\tYou need a key to open this door, you START to see RED as your frustration builds.\n" +
+                            "\n" +
+                            "\tPress any key to continue...");
+                    inRoomDeathRoom = false;
+                    Console.ReadKey();
+                    Console.Clear();
+                    RoomThree();
+                }
+            }
+        }
+        private void DeathRoomWithKey()
+        {
+            bool inRoomDeathRoom = true;
+            while (inRoomDeathRoom)
+            {
+                if (_hasKey == true)
+                {
+                    Console.WriteLine(@"
         
         ▄▄▄█████▓ ██▀███  ▓█████ ▄▄▄        ██████  █    ██  ██▀███  ▓█████ 
         ▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒████▄    ▒██    ▒  ██  ▓██▒▓██ ▒ ██▒▓█   ▀ 
@@ -921,17 +1147,11 @@ namespace PairProgrammingConsoleGame
                         ░         ░ ░      ░ ░         ░                    
                                                                             
 
-            ";
-            Console.WriteLine(title);
+            ");
+                    Console.WriteLine("\n\tYou insert the golden key you found in the first room, with a simple turn you hear a very\n" +
+                      "\taudible click. The door recesses into the frame of the wall and pulls away. Before you, you see all the\n" +
+                      "\ttreasure and the ancient sword.\n");
 
-            bool inRoomDeathRoom = true;
-            while (inRoomDeathRoom)
-            {
-                Console.WriteLine("\n\tYou insert the golden key you found in the first room, with a simple turn you hear a very\n" +
-                       "\taudible click. The door recesses into the frame of the wall and pulls away. Before you, you see all the\n" +
-                       "\ttreasure and the ancient sword.\n");
-                if (_hasKey)
-                {
                     Console.WriteLine("\tWhat would you like to do?\n" +
                         "\n" +
                     "\t1. Rules\n" +
@@ -1007,7 +1227,7 @@ namespace PairProgrammingConsoleGame
                                 "\tPress any key to continue...");
                             Console.ReadKey();
                             inRoomDeathRoom = false;
-                            RoomThree();
+                            DeathRoomWithSword();
                             break;
                         case "go back":
                         case "back":
@@ -1041,6 +1261,132 @@ namespace PairProgrammingConsoleGame
                 }
             }
         }
+        private void DeathRoomWithSword()
+        {
+            bool inRoomDeathRoom = true;
+            while (inRoomDeathRoom)
+            {
+                if (_hasKey == true)
+                {
+                    Console.WriteLine(@"
+        
+        ▄▄▄█████▓ ██▀███  ▓█████ ▄▄▄        ██████  █    ██  ██▀███  ▓█████ 
+        ▓  ██▒ ▓▒▓██ ▒ ██▒▓█   ▀▒████▄    ▒██    ▒  ██  ▓██▒▓██ ▒ ██▒▓█   ▀ 
+        ▒ ▓██░ ▒░▓██ ░▄█ ▒▒███  ▒██  ▀█▄  ░ ▓██▄   ▓██  ▒██░▓██ ░▄█ ▒▒███   
+        ░ ▓██▓ ░ ▒██▀▀█▄  ▒▓█  ▄░██▄▄▄▄██   ▒   ██▒▓▓█  ░██░▒██▀▀█▄  ▒▓█  ▄ 
+          ▒██▒ ░ ░██▓ ▒██▒░▒████▒▓█   ▓██▒▒██████▒▒▒▒█████▓ ░██▓ ▒██▒░▒████▒
+          ▒ ░░   ░ ▒▓ ░▒▓░░░ ▒░ ░▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░▒▓▒ ▒ ▒ ░ ▒▓ ░▒▓░░░ ▒░ ░
+            ░      ░▒ ░ ▒░ ░ ░  ░ ▒   ▒▒ ░░ ░▒  ░ ░░░▒░ ░ ░   ░▒ ░ ▒░ ░ ░  ░
+          ░        ░░   ░    ░    ░   ▒   ░  ░  ░   ░░░ ░ ░   ░░   ░    ░   
+                    ░        ░  ░     ░  ░      ░     ░        ░        ░  ░
+                      ██▀███   ▒█████   ▒█████   ███▄ ▄███▓                 
+                     ▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒                 
+                     ▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▓██    ▓██░                 
+                     ▒██▀▀█▄  ▒██   ██░▒██   ██░▒██    ▒██                  
+                     ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒                 
+                     ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░                 
+                       ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░                 
+                       ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░                    
+                        ░         ░ ░      ░ ░         ░                    
+                                                                            
+
+            ");
+                    Console.WriteLine("\n\tWith Sword in hand you gaze at the gold around you.");
+
+                    Console.WriteLine("\tWhat would you like to do?\n" +
+                        "\n" +
+                    "\t1. Rules\n" +
+                    "\t2. Inventory\n" +
+                    "\t3. Exit");
+
+                    string input = Console.ReadLine();
+
+                    switch (input.ToLower())
+                    {
+                        case "1":
+                            // Rules
+                            DisplayRules();
+                            Console.WriteLine("\tPress any key to continue...");
+                            break;
+                        case "2":
+                            // Inventory
+                            Inventory();
+                            Console.WriteLine("\tPress any key to continue...");
+                            break;
+                        case "3":
+                            // Exit
+                            return;
+                        case "gold":
+                        case "pick up treasure":
+                        case "treasure":
+                        case "pick up gold":
+                            Console.Clear();
+                            Console.WriteLine("\n\tYou give in to temptation and dart quickly for anything that is shiny or valuable.\n" +
+                                "\tYou begin to bask in all this wealth that you have claimed for your own. As you are enjoying untold riches\n" +
+                                "\tyou feel the floor beneath you begin to give way. You try your best to scramble back up to your feet and\n" +
+                                "\tmake for the door but it closes before you could reach it.\n" +
+                                "\n" +
+                                "\tPress any key to continue...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            Console.WriteLine("\n\tThe floor opens up to below, the gold coins begin to clatter beneath you as you slowly begin\n" +
+                                "\tto drift into the dark abyss. You can hold yourself up no longer and begin to plummit.\n" +
+                                "\n" +
+                                "\tAs you near what you could only assume is the bottom of this pit you are met with the jagged metal edges of\n" +
+                                "\tupright blades and skewers. The momentum of your fall comes to a quick stop as you feel the burning sensation\n" +
+                                "\tof being skewered alive. You let out a blood gurgling growl as the you begin to cough up blood.\n" +
+                                "\n" +
+                                "\tIn your final moments you think to yourself \"Maybe it was not best to give into temptation and greed\"\n" +
+                                "\tas you lay there struggling to keep consciousness a shadowy figure reveals itself to you.\n" +
+                                "\n" +
+                                "\tPress any key to continue...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            Console.WriteLine("\n\tThe specter like creature moves in close and grasps your back, it's cold touch could bring\n" +
+                                "\ton death itself. It leans in and whispers...");
+                            Thread.Sleep(5000); //wait 5 seconds
+                            BloodForTheBloodGod();
+                            Thread.Sleep(10000); //wait 10 seconds
+                            Console.Clear();
+                            Console.WriteLine("\n\tYou have died...\n" +
+                                "\n" +
+                                "\tPress any key to return to main menu.");
+                            Console.ReadKey();
+                            Menu();
+                            break;
+                        case "go back":
+                        case "back":
+                        case "leave":
+                            Console.Clear();
+                            Console.WriteLine("\n\tYou leave the room.");
+                            inRoomDeathRoom = false;
+                            RoomThree();
+                            break;
+                        default:
+                            Console.Clear();
+                            Console.WriteLine("\n\tPlease enter a valid option.\n" +
+                                "\n" +
+                                "\tPress any key to continue...");
+                            break;
+                    }
+                    Console.ReadKey();
+                    Console.Clear();
+                }
+                else
+                {
+                    Console.WriteLine("\n\tThis door seems to be locked and requires some sort of key.\n" +
+                        "\n" +
+                        "\tYou need a key to open this door, you START to see RED as your frustration builds.\n" +
+                        "\n" +
+                        "\tPress any key to continue...");
+                    inRoomDeathRoom = false;
+                    Console.ReadKey();
+                    Console.Clear();
+                    RoomThree();
+                }
+            }
+        }
+
 
         // Helper Methods
         private void OpenDoor()
