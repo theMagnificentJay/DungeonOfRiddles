@@ -9,6 +9,7 @@ namespace PairProgrammingConsoleGame
 {
     public class ProgramUI
     {
+        private Items _items = new Items();
         bool _hasKey;
         bool _hasWeapon;
         bool _hasRiddle;
@@ -326,6 +327,7 @@ namespace PairProgrammingConsoleGame
                     case "goto key":
                         // goto key
                         Console.Clear();
+                        _items.KeyImage();
                         Console.WriteLine("\n\tYou walk over to the key that is on the ground in the corner. It entices you, maybe\n" +
                             "\tyou will need this later.\n" +
                             "\n" +
@@ -336,6 +338,7 @@ namespace PairProgrammingConsoleGame
                     case "look at key":
                         // look at key
                         Console.Clear();
+                        _items.KeyImage();
                         Console.WriteLine("\n\tThe key glistens in the darkened room, gold and embroidered with some ancient dialect unkown to yourself.\n" +
                             "\tIt entices you, maybe you will need this later.\n" +
                             "\n" +
@@ -346,6 +349,7 @@ namespace PairProgrammingConsoleGame
                     case "pick up key":
                         // pick up key
                         Console.Clear();
+                        _items.KeyImage();
                         Console.WriteLine("\n\tYou walk over to the key on the ground, bend down, pick it up and slip into your pocket.\n" +
                             "\n" +
                             "\tPress any key to continue...");
@@ -505,6 +509,7 @@ namespace PairProgrammingConsoleGame
                     case "goto key":
                         // goto key
                         Console.Clear();
+                        _items.KeyImage();
                         Console.WriteLine("\n\tYou walk over to the key that is on the ground in the corner. It entices you, maybe\n" +
                             "\tyou will need this later.\n" +
                             "\n" +
@@ -515,8 +520,9 @@ namespace PairProgrammingConsoleGame
                     case "look at key":
                         // look at key
                         Console.Clear();
+                        _items.KeyImage();
                         Console.WriteLine("\n\tThe key glistens in the darkened room, gold and embroidered with some ancient dialect unkown to yourself.\n" +
-                            "\tIt entices you, maybe you will need this later.\n" +
+                           "\tIt entices you, maybe you will need this later.\n" +
                             "\n" +
                             "\tNote: You can \"pick up key\" to add this item to your inventory.\n" +
                             "\n" +
@@ -525,6 +531,7 @@ namespace PairProgrammingConsoleGame
                     case "pick up key":
                         // pick up key
                         Console.Clear();
+                        _items.KeyImage();
                         Console.WriteLine("\n\tYou walk over to the key on the ground, bend down, pick it up and slip into your pocket.\n" +
                             "\n" +
                             "\tPress any key to continue...");
@@ -639,11 +646,14 @@ namespace PairProgrammingConsoleGame
                     case "go to book":
                     case "goto book":
                     case "book":
+                    case "pick up book":
+                    case "take book":
                         Console.Clear();
                         Console.WriteLine("\n\tYou walk over to the corpse and pry the book from their arms. You open the book and look amoung\n" +
                             "\tits pages. While most pages are too badly damaged to read them you do see one page that seems unscathed.\n" +
                             "\n" +
                             "\tPress any key to continue...");
+                        _hasRiddle = true;
                         Console.ReadKey();
                         Book();
                         break;
@@ -788,6 +798,7 @@ namespace PairProgrammingConsoleGame
                         break;
                     case "golden door":
                     case "open golden door":
+                    case "open gold door":
                     case "gold door":
                         Console.Clear();
                         inRoomThree = false;
@@ -1120,6 +1131,7 @@ namespace PairProgrammingConsoleGame
         }
         private void DeathRoomWithKey()
         {
+            Console.Clear();
             bool inRoomDeathRoom = true;
             while (inRoomDeathRoom)
             {
@@ -1220,9 +1232,8 @@ namespace PairProgrammingConsoleGame
                             Console.Clear();
                             Console.WriteLine("\n\tYou only inch in the room and grab the ancient sword.");
                             _hasWeapon = true;
+                            _items.SwordImage();
                             Console.WriteLine("\n\n\tYou add the sword to your inventory, you have a feeling this will come in handy later.\n" +
-                                "\n" +
-                                "\tYou feel it best to come back for the treasure later.\n" +
                                 "\n" +
                                 "\tPress any key to continue...");
                             Console.ReadKey();
@@ -1263,6 +1274,7 @@ namespace PairProgrammingConsoleGame
         }
         private void DeathRoomWithSword()
         {
+            Console.Clear();
             bool inRoomDeathRoom = true;
             while (inRoomDeathRoom)
             {
@@ -1404,14 +1416,17 @@ namespace PairProgrammingConsoleGame
             if (_hasKey)
             {
                 Console.WriteLine("\n\tGolden Key");
+                _items.KeyImage();
             }
             if (_hasWeapon)
             {
                 Console.WriteLine("\n\tSword");
+                _items.SwordImage();
             }
             if (_hasRiddle)
             {
                 Console.WriteLine("\n\tBook");
+                _items.BookImage();
             }
             if (_hasKey == false && _hasWeapon == false && _hasRiddle == false)
             {
